@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+{% block banner %}
+<div id="banner">
+</div>
+{% endblock banner %}
+{% block content %}
+<div class="hcards">
+<div class="it">
+    <h1 class="nami1">IT & Software</h1>
+    <p class="akon1"> Find All Courses Here</p>
+    <button class="lonk1" ><a href="/it-page/">more details</a>
+    </button>
+    </div>
+<div class="trd">
+        <h1 class="nami1">Trading</h1>
+        <p class="akon1"> Find All Courses Here</p>
+        <button class="lonk1" ><a href="/trades-page/">more details</a>
+        </button>
+    </div>
+<div class="drps">
+            <h1 class="nami1">Dropshipping</h1>
+            <p class="akon1"> Find All Courses Here</p>
+            <button class="lonk1" ><a href="/dropshipping-page/">more details</a>
+            </button>
+</div>
+</div>
+{% for block in page.body %}
+{% include_block block %}
+{% endfor %}
+{% endblock content %}

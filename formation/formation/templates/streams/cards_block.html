@@ -1,0 +1,24 @@
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% for card in self.cards %}
+
+{% image card.image max-320x200 as img %}
+<div class="luffy"  id="{{card.title}}" onclick="product(this.id,this.id)">
+<h1 class="nami" >{{card.title}}</h1>
+<img id="logo" src="{{ img.url }}" alt="image">
+{% if card.text %}
+<button  class="snipcart-add-item"
+data-item-id="{{card.title}}"
+data-item-price="{{card.price}}"
+data-item-description="{{card.text}}"
+data-item-image="{{ img.url }}"
+data-item-name="{{card.title}}"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </svg>  ADD TO CART</button>
+<p class="price" data-item-price="{{card.price}}">{{card.price}} $</p>
+<p id="akon" data-item-description="{{card.text}}">{{card.text}}</p>
+{% endif %}
+<hr style="width: 1300px; margin:0%; height:2px; background-color:black;">
+</div>
+{% endfor %}

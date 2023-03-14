@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+{% block content %}
+<div id="itp">
+{% for block in page.body %}
+{% include_block block %}
+{% endfor %}
+</div>
+{% endblock content %}
